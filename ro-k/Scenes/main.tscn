@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://de0d8gcdrav1q" path="res://Scenes/dog_enemy.tscn" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://dc1goph8o7hfs" path="res://Scenes/BattleHUD.tscn" id="7_6bp64"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
+size = Vector2(175, 657)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jjgbg"]
 distance = 1.625
 
@@ -23,10 +26,7 @@ texture = ExtResource("2_bo1nx")
 tile_size = Vector2i(64, 55)
 sources/0 = SubResource("TileSetAtlasSource_8gbba")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
-size = Vector2(175, 657)
-
-[node name="Main" type="Node2D"]
+[node name="main" type="Node2D"]
 script = ExtResource("1_21xkr")
 
 [node name="BG Static" type="Parallax2D" parent="."]
@@ -44,6 +44,26 @@ texture = ExtResource("1_8gbba")
 
 [node name="Sprite2D4" type="Sprite2D" parent="BG Static"]
 position = Vector2(2361.0354, 317.10886)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("1_8gbba")
+
+[node name="Sprite2D6" type="Sprite2D" parent="BG Static"]
+position = Vector2(3150.0356, 317.10886)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("1_8gbba")
+
+[node name="Sprite2D7" type="Sprite2D" parent="BG Static"]
+position = Vector2(3938.0356, 317.10886)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("1_8gbba")
+
+[node name="Sprite2D8" type="Sprite2D" parent="BG Static"]
+position = Vector2(4724.0356, 317.10886)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("1_8gbba")
+
+[node name="Sprite2D5" type="Sprite2D" parent="BG Static"]
+position = Vector2(-732.9646, 317.10886)
 scale = Vector2(4.9245577, 4.1249204)
 texture = ExtResource("1_8gbba")
 
@@ -70,6 +90,21 @@ position = Vector2(2601.7646, 265)
 scale = Vector2(3.1029415, 3.1029415)
 texture = ExtResource("2_jjvhh")
 
+[node name="Sprite2D5" type="Sprite2D" parent="BG Moving"]
+position = Vector2(3791.7646, 265)
+scale = Vector2(3.1029415, 3.1029415)
+texture = ExtResource("2_jjvhh")
+
+[node name="Sprite2D6" type="Sprite2D" parent="BG Moving"]
+position = Vector2(4981.7646, 265)
+scale = Vector2(3.1029415, 3.1029415)
+texture = ExtResource("2_jjvhh")
+
+[node name="Sprite2D4" type="Sprite2D" parent="BG Moving"]
+position = Vector2(-929.9999, 265)
+scale = Vector2(3.1029415, 3.1029415)
+texture = ExtResource("2_jjvhh")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_jjgbg")]
 position = Vector2(245.00002, 397)
 scale = Vector2(6, 6)
@@ -82,6 +117,21 @@ limit_left = -335
 position_smoothing_enabled = true
 script = ExtResource("5_344ge")
 
+[node name="Boundaries" type="Node" parent="."]
+
+[node name="Bounds" type="StaticBody2D" parent="Boundaries"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Bounds"]
+position = Vector2(-422, 327.5)
+shape = SubResource("RectangleShape2D_jjvhh")
+
+[node name="Bounds2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(4828, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Bounds2"]
+position = Vector2(-422, 327.5)
+shape = SubResource("RectangleShape2D_jjvhh")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(668, 484)
 scale = Vector2(8, 8)
@@ -93,13 +143,7 @@ shape = SubResource("WorldBoundaryShape2D_jjgbg")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jjgbg")
 format = 2
-layer_0/tile_data = PackedInt32Array(655360, 393216, 1, 655361, 393216, 1, 655362, 393216, 1, 655363, 393216, 1, 655364, 393216, 1, 655365, 393216, 1, 655366, 393216, 1, 655367, 393216, 1, 655368, 393216, 1, 655369, 393216, 1, 655370, 393216, 1, 655371, 393216, 1, 655372, 393216, 1, 655373, 393216, 1, 655374, 393216, 1, 655375, 393216, 1, 655376, 393216, 1, 655377, 393216, 1, 655378, 393216, 1, 655379, 393216, 1, 655380, 393216, 1, 655381, 393216, 1, 655382, 393216, 1, 655383, 393216, 1, 655384, 393216, 1, 655385, 393216, 1, 655386, 393216, 1, 655387, 393216, 1, 655388, 393216, 1, 655389, 393216, 1, 655390, 393216, 1, 720895, 393216, 1, 720894, 393216, 1, 720893, 393216, 1, 720892, 393216, 1, 720891, 393216, 1, 720890, 393216, 1, 720889, 393216, 1, 720888, 393216, 1, 720887, 393216, 1, 720886, 393216, 1, 720885, 393216, 1, 720884, 393216, 1, 720883, 393216, 1, 655391, 393216, 1, 655392, 393216, 1, 655393, 393216, 1, 655394, 393216, 1, 655395, 393216, 1, 655396, 393216, 1, 655397, 393216, 1, 655398, 393216, 1, 655399, 393216, 1, 655400, 393216, 1, 655401, 393216, 1, 655402, 393216, 1, 655403, 393216, 1, 655404, 393216, 1, 655405, 393216, 1, 655406, 393216, 1, 655407, 393216, 1, 655408, 393216, 1, 655409, 393216, 1)
-
-[node name="Bounds" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounds"]
-position = Vector2(-422, 327.5)
-shape = SubResource("RectangleShape2D_jjvhh")
+layer_0/tile_data = PackedInt32Array(655360, 393216, 1, 655361, 393216, 1, 655362, 393216, 1, 655363, 393216, 1, 655364, 393216, 1, 655365, 393216, 1, 655366, 393216, 1, 655367, 393216, 1, 655368, 393216, 1, 655369, 393216, 1, 655370, 393216, 1, 655371, 393216, 1, 655372, 393216, 1, 655373, 393216, 1, 655374, 393216, 1, 655375, 393216, 1, 655376, 393216, 1, 655377, 393216, 1, 655378, 393216, 1, 655379, 393216, 1, 655380, 393216, 1, 655381, 393216, 1, 655382, 393216, 1, 655383, 393216, 1, 655384, 393216, 1, 655385, 393216, 1, 655386, 393216, 1, 655387, 393216, 1, 655388, 393216, 1, 655389, 393216, 1, 655390, 393216, 1, 720895, 393216, 1, 720894, 393216, 1, 720893, 393216, 1, 720892, 393216, 1, 720891, 393216, 1, 720890, 393216, 1, 720889, 393216, 1, 720888, 393216, 1, 720887, 393216, 1, 720886, 393216, 1, 720885, 393216, 1, 720884, 393216, 1, 720883, 393216, 1, 655391, 393216, 1, 655392, 393216, 1, 655393, 393216, 1, 655394, 393216, 1, 655395, 393216, 1, 655396, 393216, 1, 655397, 393216, 1, 655398, 393216, 1, 655399, 393216, 1, 655400, 393216, 1, 655401, 393216, 1, 655402, 393216, 1, 655403, 393216, 1, 655404, 393216, 1, 655405, 393216, 1, 655406, 393216, 1, 655407, 393216, 1, 655408, 393216, 1, 655409, 393216, 1, 655410, 393216, 1, 655411, 393216, 1, 655412, 393216, 1, 655413, 393216, 1, 655414, 393216, 1, 655415, 393216, 1, 655416, 393216, 1, 655417, 393216, 1, 655418, 393216, 1, 655419, 393216, 1, 655420, 393216, 1, 655421, 393216, 1, 655422, 393216, 1, 655423, 393216, 1, 655424, 393216, 1, 655425, 393216, 1, 655426, 393216, 1, 655428, 393216, 1, 655429, 393216, 1, 655427, 393216, 1, 655430, 393216, 1, 655431, 393216, 1, 655432, 393216, 1, 655433, 393216, 1, 655434, 393216, 1, 655435, 393216, 1, 655436, 393216, 1, 655437, 393216, 1, 655438, 393216, 1, 655439, 393216, 1)
 
 [node name="DogEnemy" parent="." instance=ExtResource("5_kry3j")]
 position = Vector2(1302, 536.00006)
