@@ -1,6 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://cllobs117aoyv"]
+[gd_scene load_steps=12 format=4 uid="uid://cllobs117aoyv"]
 
 [ext_resource type="Script" uid="uid://b6qjsdnxxy62t" path="res://Scripts/Character_Controller.gd" id="1_ymxaj"]
+[ext_resource type="Texture2D" uid="uid://bpsc6rtvfnbx" path="res://RoK-TestSprites/healthbarUnder.png" id="2_it8n0"]
+[ext_resource type="Texture2D" uid="uid://io74sk7i17jt" path="res://RoK-TestSprites/healthbarProgress.png" id="3_gbyq6"]
 
 [sub_resource type="Animation" id="Animation_ymxaj"]
 length = 1.551
@@ -97,6 +99,15 @@ size = Vector2(114, 24)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_ymxaj")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -20.000002
+offset_top = -35.000004
+offset_right = 44.0
+offset_bottom = -25.000002
+scale = Vector2(0.635, 0.635)
+texture_under = ExtResource("2_it8n0")
+texture_progress = ExtResource("3_gbyq6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
