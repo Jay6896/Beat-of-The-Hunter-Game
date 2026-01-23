@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdhl358igdt6s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pnne1"]
+bg_color = Color(0.05114498, 0.046293207, 0.046293303, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsv83"]
+bg_color = Color(0.7764706, 0.7764706, 0.7764706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bdcm"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="InputButton" type="HBoxContainer"]
+offset_right = 704.0
+offset_bottom = 36.0
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(704, 36)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_pnne1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xsv83")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0bdcm")
+
+[node name="Labels" type="MarginContainer" parent="Button"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Action_name" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 8.0
+offset_right = 106.0
+offset_bottom = 31.0
+size_flags_horizontal = 0
+text = "Action_name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Event_name" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 602.0
+offset_top = 8.0
+offset_right = 696.0
+offset_bottom = 31.0
+size_flags_horizontal = 8
+text = "Event_name"
