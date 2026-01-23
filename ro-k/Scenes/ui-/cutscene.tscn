@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://c08rys6jfbdfc"]
+
+[ext_resource type="Texture2D" uid="uid://bi03l0yhv30y" path="res://Assets/forest.png" id="1_lgdvr"]
+[ext_resource type="Script" uid="uid://d0gqcgswfpxet" path="res://Scripts/rich_text_label.gd" id="2_ks5jh"]
+
+[node name="Cutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lgdvr")
+
+[node name="RichTextLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -79.0
+offset_right = 1.0
+offset_bottom = -29.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 36
+script = ExtResource("2_ks5jh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.075
+
+[connection signal="timeout" from="Timer" to="RichTextLabel" method="_on_timer_timeout"]
