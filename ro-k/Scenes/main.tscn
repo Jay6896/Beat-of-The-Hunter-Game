@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dai8fs6ju67mj"]
+[gd_scene load_steps=20 format=3 uid="uid://dai8fs6ju67mj"]
 
 [ext_resource type="Texture2D" uid="uid://cr78f50ke0nmp" path="res://Assets/Backgrounds/Forest of Illusion Files/Layers/back.png" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bgpe7ooxfwck8" path="res://Scripts/main.gd" id="1_21xkr"]
@@ -7,7 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://0hhsuaa0ggi1" path="res://Assets/Backgrounds/Forest of Illusion Files/Layers/middle.png" id="2_jjvhh"]
 [ext_resource type="Script" uid="uid://c8aqj7yfir753" path="res://Scripts/camera_2d.gd" id="5_344ge"]
 [ext_resource type="PackedScene" uid="uid://de0d8gcdrav1q" path="res://Scenes/dog_enemy.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://dhjc80ul1galt" path="res://Scenes/snake_enemy.tscn" id="6_hptm8"]
 [ext_resource type="PackedScene" uid="uid://dc1goph8o7hfs" path="res://Scenes/BattleHUD.tscn" id="7_6bp64"]
+[ext_resource type="Texture2D" uid="uid://by8kgndkavfnn" path="res://Assets/Backgrounds/Forest of Illusion Files/Layers/Bounds.png" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://b5jgodccur76q" path="res://Scenes/floating_platform_begin.tscn" id="11_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://dlt0ul4a26t0r" path="res://Assets/Backgrounds/Grass_Texture_Round.png" id="11_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://u2hes8jmcqj" path="res://Scenes/floating_platform.tscn" id="12_6iyac"]
+[ext_resource type="PackedScene" uid="uid://ck7qxl30kd0ll" path="res://Scenes/story_ui.tscn" id="14_jkdf5"]
+[ext_resource type="PackedScene" uid="uid://cmeuxg28dtvwo" path="res://Scenes/PauseMenu.tscn" id="15_wsu2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
 size = Vector2(175, 657)
@@ -29,81 +36,99 @@ sources/0 = SubResource("TileSetAtlasSource_8gbba")
 [node name="main" type="Node2D"]
 script = ExtResource("1_21xkr")
 
-[node name="BG Static" type="Parallax2D" parent="."]
+[node name="Backgrounds" type="Node2D" parent="."]
+position = Vector2(0, -350)
+scale = Vector2(1.5, 1.5)
+
+[node name="BG Static" type="Parallax2D" parent="Backgrounds"]
 scroll_scale = Vector2(0, 0)
 
-[node name="Sprite2D2" type="Sprite2D" parent="BG Static"]
-position = Vector2(790.0353, 317.10886)
+[node name="Sprite2D2" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(785.3687, 317.10886)
 scale = Vector2(4.9245577, 4.1249204)
 texture = ExtResource("1_8gbba")
 
-[node name="Sprite2D3" type="Sprite2D" parent="BG Static"]
-position = Vector2(1572.0354, 317.10886)
+[node name="Sprite2D3" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(1568.0355, 317.10886)
 scale = Vector2(4.9245577, 4.1249204)
 texture = ExtResource("1_8gbba")
 
-[node name="Sprite2D4" type="Sprite2D" parent="BG Static"]
-position = Vector2(2361.0354, 317.10886)
+[node name="Sprite2D4" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(2353.0332, 317.10886)
 scale = Vector2(4.9245577, 4.1249204)
 texture = ExtResource("1_8gbba")
 
-[node name="Sprite2D6" type="Sprite2D" parent="BG Static"]
-position = Vector2(3150.0356, 317.10886)
+[node name="Sprite2D6" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(3138.7026, 317.10886)
 scale = Vector2(4.9245577, 4.1249204)
 texture = ExtResource("1_8gbba")
 
-[node name="Sprite2D7" type="Sprite2D" parent="BG Static"]
-position = Vector2(3938.0356, 317.10886)
+[node name="Sprite2D7" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(3922.7021, 317.10886)
 scale = Vector2(4.9245577, 4.1249204)
 texture = ExtResource("1_8gbba")
 
-[node name="Sprite2D8" type="Sprite2D" parent="BG Static"]
-position = Vector2(4724.0356, 317.10886)
+[node name="Sprite2D8" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(4706.704, 317.10886)
 scale = Vector2(4.9245577, 4.1249204)
 texture = ExtResource("1_8gbba")
 
-[node name="Sprite2D5" type="Sprite2D" parent="BG Static"]
+[node name="Sprite2D5" type="Sprite2D" parent="Backgrounds/BG Static"]
 position = Vector2(-732.9646, 317.10886)
 scale = Vector2(4.9245577, 4.1249204)
 texture = ExtResource("1_8gbba")
 
-[node name="Sprite2D" type="Sprite2D" parent="BG Static"]
-position = Vector2(30.746307, 318.35107)
+[node name="Sprite2D9" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(-1519.2988, 317.109)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("1_8gbba")
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(26.746315, 318.35107)
 scale = Vector2(4.609329, 4.109475)
 texture = ExtResource("1_8gbba")
 
-[node name="BG Moving" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.8, 0.8)
+[node name="BG Moving" type="Parallax2D" parent="Backgrounds"]
 
-[node name="Sprite2D" type="Sprite2D" parent="BG Moving"]
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/BG Moving"]
 position = Vector2(258.7648, 265)
 scale = Vector2(3.1029415, 3.1029415)
 texture = ExtResource("2_jjvhh")
 
-[node name="Sprite2D2" type="Sprite2D" parent="BG Moving"]
+[node name="Sprite2D2" type="Sprite2D" parent="Backgrounds/BG Moving"]
 position = Vector2(1410.7646, 265)
 scale = Vector2(3.1029415, 3.1029415)
 texture = ExtResource("2_jjvhh")
 
-[node name="Sprite2D3" type="Sprite2D" parent="BG Moving"]
+[node name="Sprite2D3" type="Sprite2D" parent="Backgrounds/BG Moving"]
 position = Vector2(2601.7646, 265)
 scale = Vector2(3.1029415, 3.1029415)
 texture = ExtResource("2_jjvhh")
 
-[node name="Sprite2D5" type="Sprite2D" parent="BG Moving"]
+[node name="Sprite2D5" type="Sprite2D" parent="Backgrounds/BG Moving"]
 position = Vector2(3791.7646, 265)
 scale = Vector2(3.1029415, 3.1029415)
 texture = ExtResource("2_jjvhh")
 
-[node name="Sprite2D6" type="Sprite2D" parent="BG Moving"]
+[node name="Sprite2D6" type="Sprite2D" parent="Backgrounds/BG Moving"]
 position = Vector2(4981.7646, 265)
 scale = Vector2(3.1029415, 3.1029415)
 texture = ExtResource("2_jjvhh")
 
-[node name="Sprite2D4" type="Sprite2D" parent="BG Moving"]
+[node name="Sprite2D4" type="Sprite2D" parent="Backgrounds/BG Moving"]
 position = Vector2(-929.9999, 265)
 scale = Vector2(3.1029415, 3.1029415)
 texture = ExtResource("2_jjvhh")
+
+[node name="Bounds" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(2021.9999, 1040)
+scale = Vector2(5.456221, 1)
+texture = ExtResource("9_ynf5e")
+
+[node name="Bounds2" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(2025.9999, -497)
+scale = Vector2(5.456221, 1)
+texture = ExtResource("9_ynf5e")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_jjgbg")]
 position = Vector2(245.00002, 397)
@@ -117,6 +142,14 @@ limit_left = -335
 position_smoothing_enabled = true
 script = ExtResource("5_344ge")
 
+[node name="SnakeEnemy" parent="." instance=ExtResource("6_hptm8")]
+position = Vector2(1160, 539)
+right_facing_offset = -15.0
+
+[node name="SnakeEnemy2" parent="." instance=ExtResource("6_hptm8")]
+position = Vector2(2949, 208)
+right_facing_offset = -15.0
+
 [node name="Boundaries" type="Node" parent="."]
 
 [node name="Bounds" type="StaticBody2D" parent="Boundaries"]
@@ -129,7 +162,7 @@ shape = SubResource("RectangleShape2D_jjvhh")
 position = Vector2(4828, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Bounds2"]
-position = Vector2(-422, 327.5)
+position = Vector2(273, 328)
 shape = SubResource("RectangleShape2D_jjvhh")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -141,11 +174,82 @@ position = Vector2(-15.125, 10.125)
 shape = SubResource("WorldBoundaryShape2D_jjgbg")
 
 [node name="TileMap" type="TileMap" parent="."]
+z_index = 2
 tile_set = SubResource("TileSet_jjgbg")
 format = 2
-layer_0/tile_data = PackedInt32Array(655360, 393216, 1, 655361, 393216, 1, 655362, 393216, 1, 655363, 393216, 1, 655364, 393216, 1, 655365, 393216, 1, 655366, 393216, 1, 655367, 393216, 1, 655368, 393216, 1, 655369, 393216, 1, 655370, 393216, 1, 655371, 393216, 1, 655372, 393216, 1, 655373, 393216, 1, 655374, 393216, 1, 655375, 393216, 1, 655376, 393216, 1, 655377, 393216, 1, 655378, 393216, 1, 655379, 393216, 1, 655380, 393216, 1, 655381, 393216, 1, 655382, 393216, 1, 655383, 393216, 1, 655384, 393216, 1, 655385, 393216, 1, 655386, 393216, 1, 655387, 393216, 1, 655388, 393216, 1, 655389, 393216, 1, 655390, 393216, 1, 720895, 393216, 1, 720894, 393216, 1, 720893, 393216, 1, 720892, 393216, 1, 720891, 393216, 1, 720890, 393216, 1, 720889, 393216, 1, 720888, 393216, 1, 720887, 393216, 1, 720886, 393216, 1, 720885, 393216, 1, 720884, 393216, 1, 720883, 393216, 1, 655391, 393216, 1, 655392, 393216, 1, 655393, 393216, 1, 655394, 393216, 1, 655395, 393216, 1, 655396, 393216, 1, 655397, 393216, 1, 655398, 393216, 1, 655399, 393216, 1, 655400, 393216, 1, 655401, 393216, 1, 655402, 393216, 1, 655403, 393216, 1, 655404, 393216, 1, 655405, 393216, 1, 655406, 393216, 1, 655407, 393216, 1, 655408, 393216, 1, 655409, 393216, 1, 655410, 393216, 1, 655411, 393216, 1, 655412, 393216, 1, 655413, 393216, 1, 655414, 393216, 1, 655415, 393216, 1, 655416, 393216, 1, 655417, 393216, 1, 655418, 393216, 1, 655419, 393216, 1, 655420, 393216, 1, 655421, 393216, 1, 655422, 393216, 1, 655423, 393216, 1, 655424, 393216, 1, 655425, 393216, 1, 655426, 393216, 1, 655428, 393216, 1, 655429, 393216, 1, 655427, 393216, 1, 655430, 393216, 1, 655431, 393216, 1, 655432, 393216, 1, 655433, 393216, 1, 655434, 393216, 1, 655435, 393216, 1, 655436, 393216, 1, 655437, 393216, 1, 655438, 393216, 1, 655439, 393216, 1, 655440, 393216, 1, 655441, 393216, 1, 655442, 393216, 1, 655443, 393216, 1, 655444, 393216, 1, 655445, 393216, 1, 655446, 393216, 1)
+layer_0/tile_data = PackedInt32Array(655360, 393216, 1, 655361, 393216, 1, 655362, 393216, 1, 655363, 393216, 1, 655364, 393216, 1, 655365, 393216, 1, 655366, 393216, 1, 655367, 393216, 1, 655368, 393216, 1, 655369, 393216, 1, 655370, 393216, 1, 655371, 393216, 1, 655372, 393216, 1, 655373, 393216, 1, 655374, 393216, 1, 655375, 393216, 1, 655376, 393216, 1, 655377, 393216, 1, 655378, 393216, 1, 655379, 393216, 1, 655380, 393216, 1, 655381, 393216, 1, 655382, 393216, 1, 655383, 393216, 1, 655384, 393216, 1, 655385, 393216, 1, 655386, 393216, 1, 655387, 393216, 1, 655388, 393216, 1, 655389, 393216, 1, 655390, 393216, 1, 720895, 393216, 1, 720894, 393216, 1, 720893, 393216, 1, 720892, 393216, 1, 720891, 393216, 1, 720890, 393216, 1, 720889, 393216, 1, 720888, 393216, 1, 720887, 393216, 1, 720886, 393216, 1, 720885, 393216, 1, 720884, 393216, 1, 720883, 393216, 1, 655391, 393216, 1, 655392, 393216, 1, 655393, 393216, 1, 655394, 393216, 1, 655395, 393216, 1, 655396, 393216, 1, 655397, 393216, 1, 655398, 393216, 1, 655399, 393216, 1, 655400, 393216, 1, 655401, 393216, 1, 655402, 393216, 1, 655403, 393216, 1, 655404, 393216, 1, 655405, 393216, 1, 655406, 393216, 1, 655407, 393216, 1, 655408, 393216, 1, 655409, 393216, 1, 655410, 393216, 1, 655411, 393216, 1, 655412, 393216, 1, 655413, 393216, 1, 655414, 393216, 1, 655415, 393216, 1, 655416, 393216, 1, 655417, 393216, 1, 655418, 393216, 1, 655419, 393216, 1, 655420, 393216, 1, 655421, 393216, 1, 655422, 393216, 1, 655423, 393216, 1, 655424, 393216, 1, 655425, 393216, 1, 655426, 393216, 1, 655428, 393216, 1, 655429, 393216, 1, 655427, 393216, 1, 655430, 393216, 1, 655431, 393216, 1, 655432, 393216, 1, 655433, 393216, 1, 655434, 393216, 1, 655435, 393216, 1, 655436, 393216, 1, 655437, 393216, 1, 655438, 393216, 1, 655439, 393216, 1, 655440, 393216, 1, 655441, 393216, 1, 655442, 393216, 1, 655443, 393216, 1, 655444, 393216, 1, 655445, 393216, 1, 655446, 393216, 1, 655447, 393216, 1, 655448, 393216, 1, 655449, 393216, 1, 655450, 393216, 1, 655451, 393216, 1, 655452, 393216, 1, 655453, 393216, 1)
 
 [node name="DogEnemy" parent="." instance=ExtResource("5_kry3j")]
-position = Vector2(1302, 536.00006)
+position = Vector2(4229, 541.00006)
+patrol_distance = 100.0
 
 [node name="BattleHUD" parent="." instance=ExtResource("7_6bp64")]
+visible = false
+
+[node name="Platforms - Group 1" type="Node" parent="."]
+
+[node name="GrassTextureRound" type="Sprite2D" parent="Platforms - Group 1"]
+position = Vector2(1942, 439.00003)
+scale = Vector2(0.29639956, 0.29639953)
+texture = ExtResource("11_fdnlq")
+
+[node name="GrassTextureRound2" type="Sprite2D" parent="Platforms - Group 1"]
+position = Vector2(2323, 439.00003)
+scale = Vector2(0.29639956, 0.29639953)
+texture = ExtResource("11_fdnlq")
+
+[node name="BeginFloatingPlatform" parent="Platforms - Group 1" instance=ExtResource("11_d1ilt")]
+position = Vector2(1747, 338)
+
+[node name="FloatingPlatform" parent="Platforms - Group 1" instance=ExtResource("12_6iyac")]
+position = Vector2(1883, 339)
+
+[node name="FloatingPlatform2" parent="Platforms - Group 1" instance=ExtResource("12_6iyac")]
+position = Vector2(2019, 339)
+
+[node name="FloatingPlatform4" parent="Platforms - Group 1" instance=ExtResource("12_6iyac")]
+position = Vector2(2157, 339)
+
+[node name="FloatingPlatform3" parent="Platforms - Group 1" instance=ExtResource("12_6iyac")]
+position = Vector2(2019, 229)
+
+[node name="BeginFloatingPlatform2" parent="Platforms - Group 1" instance=ExtResource("11_d1ilt")]
+position = Vector2(1882, 229)
+
+[node name="BeginFloatingPlatform3" parent="Platforms - Group 1" instance=ExtResource("11_d1ilt")]
+position = Vector2(2393, 229)
+rotation = 6.2831855
+scale = Vector2(-1, 1)
+
+[node name="BeginFloatingPlatform4" parent="Platforms - Group 1" instance=ExtResource("11_d1ilt")]
+position = Vector2(2527, 338)
+rotation = 6.2831855
+scale = Vector2(-1, 1)
+
+[node name="Platforms - Group 2" type="Node" parent="."]
+
+[node name="BeginFloatingPlatform" parent="Platforms - Group 2" instance=ExtResource("11_d1ilt")]
+position = Vector2(2520, 106)
+
+[node name="FloatingPlatform" parent="Platforms - Group 2" instance=ExtResource("12_6iyac")]
+position = Vector2(2656, 107)
+
+[node name="FloatingPlatform2" parent="Platforms - Group 2" instance=ExtResource("12_6iyac")]
+position = Vector2(2792, 107)
+
+[node name="FloatingPlatform4" parent="Platforms - Group 2" instance=ExtResource("12_6iyac")]
+position = Vector2(2930, 107)
+
+[node name="BeginFloatingPlatform4" parent="Platforms - Group 2" instance=ExtResource("11_d1ilt")]
+position = Vector2(3300, 106)
+rotation = 6.2831855
+scale = Vector2(-1, 1)
+
+[node name="PauseMenu" parent="." instance=ExtResource("15_wsu2k")]
+
+[node name="StoryUi" parent="." instance=ExtResource("14_jkdf5")]
+scale = Vector2(0.65, 0.65)
+transform = Transform2D(0.65, 0, 0, 0.65, 0, 0)
+next_scene_path = "res://Scenes/level_2.tscn"
+
+[connection signal="boss_defeated" from="DogEnemy" to="StoryUi" method="_on_dog_enemy_boss_defeated"]

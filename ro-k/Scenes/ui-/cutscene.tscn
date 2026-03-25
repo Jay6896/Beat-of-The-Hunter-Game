@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c08rys6jfbdfc"]
 
-[ext_resource type="Texture2D" uid="uid://bi03l0yhv30y" path="res://Assets/forest.png" id="1_lgdvr"]
-[ext_resource type="Script" uid="uid://4rjmo5jrg7mx" path="res://Scripts/cutscene.gd" id="2_ks5jh"]
+[ext_resource type="Texture2D" uid="uid://c4vdh1it7quwd" path="res://Assets/Backgrounds/Forest of Illusion Files/Previews/Preview.png" id="1_lgdvr"]
+[ext_resource type="Script" uid="uid://620q5o0yxh6w" path="res://Scenes/ui-/cutscene.gd" id="2_ks5jh"]
 
 [node name="Cutscene" type="Control"]
 layout_mode = 3

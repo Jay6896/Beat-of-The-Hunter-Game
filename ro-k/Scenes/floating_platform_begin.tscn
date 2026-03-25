@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5jgodccur76q"]
+
+[ext_resource type="Texture2D" uid="uid://py6d4w8empdu" path="res://Assets/Backgrounds/Grass_Texture_1.png" id="1_4lfrg"]
+
+[node name="FloatingPlatformBegin" type="StaticBody2D"]
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(120.562485, 133.84012)
+scale = Vector2(0.17343228, 0.17343228)
+texture = ExtResource("1_4lfrg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(120.25773, 132.15517)
+scale = Vector2(0.18082288, 0.17343228)
+polygon = PackedVector2Array(-56.728027, -173.87286, -341.92944, 426.76312, 380.16364, 425.78485, 374.63336, -173.87286)
+one_way_collision = true

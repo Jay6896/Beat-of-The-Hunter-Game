@@ -1,0 +1,344 @@
+[gd_scene load_steps=20 format=3 uid="uid://do6co5vuyn4ko"]
+
+[ext_resource type="Script" uid="uid://bgpe7ooxfwck8" path="res://Scripts/main.gd" id="1_q0ycs"]
+[ext_resource type="Texture2D" uid="uid://cr78f50ke0nmp" path="res://Assets/Backgrounds/Forest of Illusion Files/Layers/back.png" id="2_hj5x7"]
+[ext_resource type="PackedScene" uid="uid://cw7f8a6jv81vd" path="res://Scenes/yellow_snake_enemy.tscn" id="2_yvrk7"]
+[ext_resource type="Texture2D" uid="uid://0hhsuaa0ggi1" path="res://Assets/Backgrounds/Forest of Illusion Files/Layers/middle.png" id="3_yvrk7"]
+[ext_resource type="Texture2D" uid="uid://by8kgndkavfnn" path="res://Assets/Backgrounds/Forest of Illusion Files/Layers/Bounds.png" id="4_fhuy1"]
+[ext_resource type="PackedScene" uid="uid://cllobs117aoyv" path="res://Scenes/character_body_2d.tscn" id="5_i6dbo"]
+[ext_resource type="Script" uid="uid://c8aqj7yfir753" path="res://Scripts/camera_2d.gd" id="6_e2piv"]
+[ext_resource type="Texture2D" uid="uid://dxe20tsxfgk25" path="res://Assets/Backgrounds/Forest of Illusion Files/Layers/tiles.png" id="8_c5xoi"]
+[ext_resource type="PackedScene" uid="uid://dc1goph8o7hfs" path="res://Scenes/BattleHUD.tscn" id="10_4k5rq"]
+[ext_resource type="Texture2D" uid="uid://dlt0ul4a26t0r" path="res://Assets/Backgrounds/Grass_Texture_Round.png" id="11_5jii6"]
+[ext_resource type="PackedScene" uid="uid://b5jgodccur76q" path="res://Scenes/floating_platform_begin.tscn" id="12_d42f2"]
+[ext_resource type="PackedScene" uid="uid://u2hes8jmcqj" path="res://Scenes/floating_platform.tscn" id="13_nx14l"]
+[ext_resource type="PackedScene" uid="uid://ck7qxl30kd0ll" path="res://Scenes/story_ui.tscn" id="14_kjoi8"]
+[ext_resource type="PackedScene" uid="uid://cmeuxg28dtvwo" path="res://Scenes/PauseMenu.tscn" id="15_nuasi"]
+[ext_resource type="PackedScene" uid="uid://c0euvr1sktqae" path="res://Scenes/rhythm_snake_boss.tscn" id="15_q0ycs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
+size = Vector2(175, 657)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jjgbg"]
+distance = 1.625
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gbba"]
+texture = ExtResource("8_c5xoi")
+1:1/size_in_atlas = Vector2i(4, 4)
+1:1/0 = 0
+6:1/size_in_atlas = Vector2i(4, 4)
+6:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_jjgbg"]
+tile_size = Vector2i(64, 55)
+sources/0 = SubResource("TileSetAtlasSource_8gbba")
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_q0ycs")
+
+[node name="YellowSnakeEnemy" parent="." instance=ExtResource("2_yvrk7")]
+position = Vector2(985.83484, -192.3057)
+right_facing_offset = -15.0
+
+[node name="YellowSnakeEnemy2" parent="." instance=ExtResource("2_yvrk7")]
+position = Vector2(2677, 291.00003)
+right_facing_offset = -15.0
+
+[node name="YellowSnakeEnemy3" parent="." instance=ExtResource("2_yvrk7")]
+position = Vector2(3279, 291.00003)
+right_facing_offset = -15.0
+
+[node name="Backgrounds" type="Node2D" parent="."]
+position = Vector2(0, -350)
+scale = Vector2(1.8, 1.8)
+
+[node name="BG Static" type="Parallax2D" parent="Backgrounds"]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(0, -43.52942)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(785.3687, 317.10886)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("2_hj5x7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(1568.0355, 317.10886)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("2_hj5x7")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(2353.0332, 317.10886)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("2_hj5x7")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(3138.7026, 317.10886)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("2_hj5x7")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(3922.7021, 317.10886)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("2_hj5x7")
+
+[node name="Sprite2D8" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(4706.704, 317.10886)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("2_hj5x7")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(5488.37, 317.10886)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("2_hj5x7")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(-732.9646, 317.10886)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("2_hj5x7")
+
+[node name="Sprite2D9" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(-1519.2988, 317.109)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("2_hj5x7")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(-2305.9656, 317.109)
+scale = Vector2(4.9245577, 4.1249204)
+texture = ExtResource("2_hj5x7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/BG Static"]
+position = Vector2(26.746315, 318.35107)
+scale = Vector2(4.609329, 4.109475)
+texture = ExtResource("2_hj5x7")
+
+[node name="BG Moving" type="Parallax2D" parent="Backgrounds"]
+scroll_offset = Vector2(0, -43.52942)
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds/BG Moving"]
+position = Vector2(258.7648, 265)
+scale = Vector2(3.1029415, 3.1029415)
+texture = ExtResource("3_yvrk7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Backgrounds/BG Moving"]
+position = Vector2(1410.7646, 265)
+scale = Vector2(3.1029415, 3.1029415)
+texture = ExtResource("3_yvrk7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Backgrounds/BG Moving"]
+position = Vector2(2601.7646, 265)
+scale = Vector2(3.1029415, 3.1029415)
+texture = ExtResource("3_yvrk7")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Backgrounds/BG Moving"]
+position = Vector2(3791.7646, 265)
+scale = Vector2(3.1029415, 3.1029415)
+texture = ExtResource("3_yvrk7")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Backgrounds/BG Moving"]
+position = Vector2(4981.7646, 265)
+scale = Vector2(3.1029415, 3.1029415)
+texture = ExtResource("3_yvrk7")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Backgrounds/BG Moving"]
+position = Vector2(-929.9999, 265)
+scale = Vector2(3.1029415, 3.1029415)
+texture = ExtResource("3_yvrk7")
+
+[node name="Bounds" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(2021.9999, 996.47046)
+scale = Vector2(5.456221, 1)
+texture = ExtResource("4_fhuy1")
+
+[node name="Bounds2" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(2025.9999, -540.52954)
+scale = Vector2(5.456221, 1)
+texture = ExtResource("4_fhuy1")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_i6dbo")]
+position = Vector2(245.00002, 397)
+scale = Vector2(6, 6)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-0.5000038, -11.833334)
+scale = Vector2(0.16666667, 0.16666667)
+offset = Vector2(350, 0)
+limit_left = -335
+position_smoothing_enabled = true
+script = ExtResource("6_e2piv")
+
+[node name="Boundaries" type="Node" parent="."]
+
+[node name="Bounds" type="StaticBody2D" parent="Boundaries"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Bounds"]
+position = Vector2(-422, 327.5)
+shape = SubResource("RectangleShape2D_jjvhh")
+
+[node name="Bounds2" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(4828, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/Bounds2"]
+position = Vector2(1098, 328)
+shape = SubResource("RectangleShape2D_jjvhh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(668, 484)
+scale = Vector2(8, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-15.125, 10.125)
+shape = SubResource("WorldBoundaryShape2D_jjgbg")
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = 2
+tile_set = SubResource("TileSet_jjgbg")
+format = 2
+layer_0/tile_data = PackedInt32Array(655360, 393216, 1, 655361, 393216, 1, 655362, 393216, 1, 655363, 393216, 1, 655364, 393216, 1, 655365, 393216, 1, 655366, 393216, 1, 655367, 393216, 1, 655368, 393216, 1, 655369, 393216, 1, 655370, 393216, 1, 655371, 393216, 1, 655372, 393216, 1, 655373, 393216, 1, 655374, 393216, 1, 655375, 393216, 1, 655376, 393216, 1, 655377, 393216, 1, 655378, 393216, 1, 655379, 393216, 1, 655380, 393216, 1, 655381, 393216, 1, 655382, 393216, 1, 655383, 393216, 1, 655384, 393216, 1, 655385, 393216, 1, 655386, 393216, 1, 655387, 393216, 1, 655388, 393216, 1, 655389, 393216, 1, 655390, 393216, 1, 720895, 393216, 1, 720894, 393216, 1, 720893, 393216, 1, 720892, 393216, 1, 720891, 393216, 1, 720890, 393216, 1, 720889, 393216, 1, 720888, 393216, 1, 720887, 393216, 1, 720886, 393216, 1, 720885, 393216, 1, 720884, 393216, 1, 720883, 393216, 1, 655391, 393216, 1, 655392, 393216, 1, 655393, 393216, 1, 655394, 393216, 1, 655395, 393216, 1, 655396, 393216, 1, 655397, 393216, 1, 655398, 393216, 1, 655399, 393216, 1, 655400, 393216, 1, 655401, 393216, 1, 655402, 393216, 1, 655403, 393216, 1, 655404, 393216, 1, 655405, 393216, 1, 655406, 393216, 1, 655407, 393216, 1, 655408, 393216, 1, 655409, 393216, 1, 655410, 393216, 1, 655411, 393216, 1, 655412, 393216, 1, 655413, 393216, 1, 655414, 393216, 1, 655415, 393216, 1, 655416, 393216, 1, 655417, 393216, 1, 655418, 393216, 1, 655419, 393216, 1, 655420, 393216, 1, 655421, 393216, 1, 655422, 393216, 1, 655423, 393216, 1, 655424, 393216, 1, 655425, 393216, 1, 655426, 393216, 1, 655428, 393216, 1, 655429, 393216, 1, 655427, 393216, 1, 655430, 393216, 1, 655431, 393216, 1, 655432, 393216, 1, 655433, 393216, 1, 655434, 393216, 1, 655435, 393216, 1, 655436, 393216, 1, 655437, 393216, 1, 655438, 393216, 1, 655439, 393216, 1, 655440, 393216, 1, 655441, 393216, 1, 655442, 393216, 1, 655443, 393216, 1, 655444, 393216, 1, 655445, 393216, 1, 655446, 393216, 1, 655447, 393216, 1, 655448, 393216, 1, 655449, 393216, 1, 655450, 393216, 1, 655451, 393216, 1, 655452, 393216, 1, 655453, 393216, 1, 655454, 393216, 1, 655455, 393216, 1, 655456, 393216, 1, 655457, 393216, 1, 655458, 393216, 1, 655459, 393216, 1, 655460, 393216, 1, 655461, 393216, 1, 655462, 393216, 1, 655463, 393216, 1, 655464, 393216, 1, 655465, 393216, 1)
+
+[node name="BattleHUD" parent="." instance=ExtResource("10_4k5rq")]
+
+[node name="Platforms - Group 1" type="Node" parent="."]
+
+[node name="GrassTextureRound" type="Sprite2D" parent="Platforms - Group 1"]
+position = Vector2(1038, 351)
+scale = Vector2(0.29639956, 0.29639953)
+texture = ExtResource("11_5jii6")
+
+[node name="GrassTextureRound2" type="Sprite2D" parent="Platforms - Group 1"]
+position = Vector2(1419, 351)
+scale = Vector2(0.29639956, 0.29639953)
+texture = ExtResource("11_5jii6")
+
+[node name="BeginFloatingPlatform" parent="Platforms - Group 1" instance=ExtResource("12_d42f2")]
+position = Vector2(843, 250)
+
+[node name="FloatingPlatform" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(979, 251)
+
+[node name="FloatingPlatform2" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1115, 251)
+
+[node name="FloatingPlatform4" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1253, 251)
+
+[node name="FloatingPlatform6" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1253, 141)
+
+[node name="FloatingPlatform3" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1115, 141)
+
+[node name="BeginFloatingPlatform2" parent="Platforms - Group 1" instance=ExtResource("12_d42f2")]
+position = Vector2(978, 141)
+
+[node name="BeginFloatingPlatform5" parent="Platforms - Group 1" instance=ExtResource("12_d42f2")]
+position = Vector2(1118, 30)
+
+[node name="FloatingPlatform5" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1252, 30)
+
+[node name="BeginFloatingPlatform6" parent="Platforms - Group 1" instance=ExtResource("12_d42f2")]
+position = Vector2(1488, -188)
+scale = Vector2(-1, 1)
+
+[node name="FloatingPlatform10" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1073, -188)
+scale = Vector2(-1, 1)
+
+[node name="FloatingPlatform11" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1213, -188)
+scale = Vector2(-1, 1)
+
+[node name="FloatingPlatform12" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1350, -188)
+scale = Vector2(-1, 1)
+
+[node name="FloatingPlatform13" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1211, -292)
+scale = Vector2(-1, 1)
+
+[node name="FloatingPlatform14" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1073, -291)
+scale = Vector2(-1, 1)
+
+[node name="FloatingPlatform15" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(933, -188)
+scale = Vector2(-1, 1)
+
+[node name="FloatingPlatform16" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(933, -291)
+scale = Vector2(-1, 1)
+
+[node name="FloatingPlatform17" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(792, -188)
+scale = Vector2(-1, 1)
+
+[node name="FloatingPlatform18" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(792, -291)
+scale = Vector2(-1, 1)
+
+[node name="BeginFloatingPlatform7" parent="Platforms - Group 1" instance=ExtResource("12_d42f2")]
+position = Vector2(1351, -292)
+scale = Vector2(-1, 1)
+
+[node name="FloatingPlatform7" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1390, 251)
+
+[node name="FloatingPlatform8" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1390, 141)
+
+[node name="FloatingPlatform9" parent="Platforms - Group 1" instance=ExtResource("13_nx14l")]
+position = Vector2(1389, 30)
+
+[node name="Platforms - Group 2" type="Node" parent="."]
+
+[node name="BeginFloatingPlatform" parent="Platforms - Group 2" instance=ExtResource("12_d42f2")]
+position = Vector2(2131, 193)
+
+[node name="FloatingPlatform" parent="Platforms - Group 2" instance=ExtResource("13_nx14l")]
+position = Vector2(2267, 194)
+
+[node name="FloatingPlatform2" parent="Platforms - Group 2" instance=ExtResource("13_nx14l")]
+position = Vector2(2403, 194)
+
+[node name="FloatingPlatform4" parent="Platforms - Group 2" instance=ExtResource("13_nx14l")]
+position = Vector2(2541, 194)
+
+[node name="FloatingPlatform3" parent="Platforms - Group 2" instance=ExtResource("13_nx14l")]
+position = Vector2(2676, 194)
+
+[node name="FloatingPlatform5" parent="Platforms - Group 2" instance=ExtResource("13_nx14l")]
+position = Vector2(2812, 194)
+
+[node name="FloatingPlatform6" parent="Platforms - Group 2" instance=ExtResource("13_nx14l")]
+position = Vector2(2950, 194)
+
+[node name="FloatingPlatform7" parent="Platforms - Group 2" instance=ExtResource("13_nx14l")]
+position = Vector2(3087, 194)
+
+[node name="FloatingPlatform8" parent="Platforms - Group 2" instance=ExtResource("13_nx14l")]
+position = Vector2(3223, 194)
+
+[node name="FloatingPlatform9" parent="Platforms - Group 2" instance=ExtResource("13_nx14l")]
+position = Vector2(3361, 194)
+
+[node name="BeginFloatingPlatform4" parent="Platforms - Group 2" instance=ExtResource("12_d42f2")]
+position = Vector2(3738, 193)
+rotation = 6.2831855
+scale = Vector2(-1, 1)
+
+[node name="RhythmSnakeBoss" parent="." instance=ExtResource("15_q0ycs")]
+position = Vector2(5349, 546)
+damage_amount = 40.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("15_nuasi")]
+visible = false
+
+[node name="StoryUi" parent="." instance=ExtResource("14_kjoi8")]
+scale = Vector2(0.65, 0.65)
+transform = Transform2D(0.65, 0, 0, 0.65, 0, 0)
+intro_text = "Find and defeat the spiritual serpent!"
+boss_defeated_text = "The spiritual serpent has been defeated... 
+The path forward is finally clear!"
+
+[connection signal="attack_hit" from="BattleHUD" to="RhythmSnakeBoss" method="attack_hit"]
+[connection signal="boss_defeated" from="RhythmSnakeBoss" to="StoryUi" method="_on_rhythm_snake_boss_boss_defeated"]
