@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cggx3glsldhm1"
-path="res://.godot/imported/Dark sanctuary.mp3-6595bf5df5ca6a320ccb7983ffbe4c55.mp3str"
+path="res://.godot/imported/Dark sanctuary.mp3-ef35495a17e7825fcb53a919953bbd9c.mp3str"
 
 [deps]
 
-source_file="res://Dark sanctuary.mp3"
-dest_files=["res://.godot/imported/Dark sanctuary.mp3-6595bf5df5ca6a320ccb7983ffbe4c55.mp3str"]
+source_file="res://Scenes/ui-/Dark sanctuary.mp3"
+dest_files=["res://.godot/imported/Dark sanctuary.mp3-ef35495a17e7825fcb53a919953bbd9c.mp3str"]
 
 [params]
 
