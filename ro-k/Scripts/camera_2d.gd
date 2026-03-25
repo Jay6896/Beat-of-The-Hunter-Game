@@ -5,12 +5,10 @@ extends Camera2D
 
 var target_offset_x = 0.0
 var is_locked = false 
-var initial_local_pos = Vector2.ZERO # Store starting position
+var initial_local_pos = Vector2.ZERO 
 
 func _ready():
-	# 1. Remember exactly where the camera was placed in the editor
 	initial_local_pos = position 
-	
 	target_offset_x = look_ahead_distance
 	offset.x = look_ahead_distance
 
@@ -36,9 +34,16 @@ func lock_camera():
 
 func unlock_camera():
 	if not is_locked: return
-	
 	is_locked = false
-	top_level = false 
 	
-	# 2. Return to the ORIGINAL editor position, not (0,0)
+	# 1. Calculate where the camera SHOULD be 
+	var target_global_pos = get_parent().global_position + initial_local_pos
+	
+	# 2. Smoothly tween the camera back to the player
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", target_global_pos, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
+	
+	# 3. Reattach it to the player smoothly
+	top_level = false 
 	position = initial_local_pos
