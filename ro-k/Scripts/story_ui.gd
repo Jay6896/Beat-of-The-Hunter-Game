@@ -124,3 +124,6 @@ func _on_dog_enemy_boss_defeated() -> void:
 
 func _on_rhythm_snake_boss_boss_defeated() -> void:
 	_on_boss_defeated()
+
+func _on_hunter_boss_boss_defeated() -> void:
+	_on_boss_defeated()
