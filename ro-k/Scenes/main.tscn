@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dai8fs6ju67mj"]
+[gd_scene load_steps=22 format=3 uid="uid://dai8fs6ju67mj"]
 
 [ext_resource type="Texture2D" uid="uid://cr78f50ke0nmp" path="res://Assets/Backgrounds/Forest of Illusion Files/Layers/back.png" id="1_8gbba"]
 [ext_resource type="Script" uid="uid://bgpe7ooxfwck8" path="res://Scripts/main.gd" id="1_21xkr"]
 [ext_resource type="PackedScene" uid="uid://cllobs117aoyv" path="res://Scenes/character_body_2d.tscn" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://dxe20tsxfgk25" path="res://Assets/Backgrounds/Forest of Illusion Files/Layers/tiles.png" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://c26k5wcricbju" path="res://Scenes/HealthPickup.tscn" id="2_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://0hhsuaa0ggi1" path="res://Assets/Backgrounds/Forest of Illusion Files/Layers/middle.png" id="2_jjvhh"]
 [ext_resource type="Script" uid="uid://c8aqj7yfir753" path="res://Scripts/camera_2d.gd" id="5_344ge"]
 [ext_resource type="PackedScene" uid="uid://de0d8gcdrav1q" path="res://Scenes/dog_enemy.tscn" id="5_kry3j"]
@@ -36,6 +37,9 @@ sources/0 = SubResource("TileSetAtlasSource_8gbba")
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_21xkr")
+
+[node name="HealthPickup" parent="." instance=ExtResource("2_h1bgf")]
+position = Vector2(2139, 271)
 
 [node name="Backgrounds" type="Node2D" parent="."]
 position = Vector2(0, -350)
@@ -185,7 +189,6 @@ position = Vector2(4229, 541.00006)
 patrol_distance = 50.0
 
 [node name="BattleHUD" parent="." instance=ExtResource("7_6bp64")]
-visible = false
 track_audio = ExtResource("11_k12tt")
 track_bpm = 90.0
 track_start_time = 93.42

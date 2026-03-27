@@ -15,7 +15,7 @@ shader_parameter/new_color_3 = Color(0.314, 0.322, 0.231, 1)
 shader_parameter/new_color_4 = Color(0.91, 0.855, 0.263, 1)
 shader_parameter/tolerance = 0.05
 
-[node name="YellowSnakeEnemy" instance=ExtResource("1_bwcxg")]
+[node name="YellowSnakeEnemy2" instance=ExtResource("1_bwcxg")]
 patrol_speed = 80.0
 max_health = 100.0
 attack_damage = 30.0

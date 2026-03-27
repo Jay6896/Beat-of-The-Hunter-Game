@@ -129,7 +129,7 @@ size_override = Vector2(720, 640)
 height = 49.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymxaj"]
-size = Vector2(114, 24)
+size = Vector2(114, 2)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pbq55"]
 radius = 21.0
@@ -197,7 +197,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CombatDetector"]
-position = Vector2(47, -2)
+position = Vector2(47, 23)
 shape = SubResource("RectangleShape2D_ymxaj")
 debug_color = Color(0.75448054, 0.45624655, 0.0514626, 0.41960785)
 

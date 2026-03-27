@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://do6co5vuyn4ko"]
+[gd_scene load_steps=21 format=3 uid="uid://do6co5vuyn4ko"]
 
 [ext_resource type="Script" uid="uid://bgpe7ooxfwck8" path="res://Scripts/main.gd" id="1_q0ycs"]
 [ext_resource type="Texture2D" uid="uid://cr78f50ke0nmp" path="res://Assets/Backgrounds/Forest of Illusion Files/Layers/back.png" id="2_hj5x7"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ck7qxl30kd0ll" path="res://Scenes/story_ui.tscn" id="14_kjoi8"]
 [ext_resource type="PackedScene" uid="uid://cmeuxg28dtvwo" path="res://Scenes/PauseMenu.tscn" id="15_nuasi"]
 [ext_resource type="PackedScene" uid="uid://c0euvr1sktqae" path="res://Scenes/rhythm_snake_boss.tscn" id="15_q0ycs"]
+[ext_resource type="PackedScene" uid="uid://c26k5wcricbju" path="res://Scenes/HealthPickup.tscn" id="16_hj5x7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
 size = Vector2(175, 657)
@@ -339,6 +340,18 @@ next_scene_path = "res://Scenes/level_3.tscn"
 intro_text = "Find and defeat the [color=black]Spiritual Serpent[/color] to free the curse from the animals!"
 boss_defeated_text = "The spiritual serpent has been defeated, 
 [font_size=48]but to free yourself from the curse, it must be from [color=black]within[/color][/font_size]"
+
+[node name="HealthPickup" parent="." instance=ExtResource("16_hj5x7")]
+position = Vector2(671, -244)
+heal_amount = 35.0
+
+[node name="HealthPickup2" parent="." instance=ExtResource("16_hj5x7")]
+position = Vector2(2931, 241)
+heal_amount = 35.0
+
+[node name="HealthPickup3" parent="." instance=ExtResource("16_hj5x7")]
+position = Vector2(3963, 492)
+heal_amount = 5.0
 
 [connection signal="attack_hit" from="BattleHUD" to="RhythmSnakeBoss" method="attack_hit"]
 [connection signal="boss_defeated" from="RhythmSnakeBoss" to="StoryUi" method="_on_rhythm_snake_boss_boss_defeated"]
