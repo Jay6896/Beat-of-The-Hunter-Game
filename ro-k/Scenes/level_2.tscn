@@ -338,7 +338,7 @@ scale = Vector2(0.65, 0.65)
 transform = Transform2D(0.65, 0, 0, 0.65, 0, 0)
 next_scene_path = "res://Scenes/level_3.tscn"
 intro_text = "Find and defeat the [color=black]Spiritual Serpent[/color] to free the curse from the animals!"
-boss_defeated_text = "The spiritual serpent has been defeated, 
+boss_defeated_text = "[font_size=48]The spiritual serpent has been defeated, the villages curses have been lifted[/font_size]
 [font_size=48]but to free yourself from the curse, it must be from [color=black]within[/color][/font_size]"
 
 [node name="HealthPickup" parent="." instance=ExtResource("16_hj5x7")]

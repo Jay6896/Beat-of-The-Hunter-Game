@@ -1,10 +1,50 @@
-[gd_scene load_steps=10 format=3 uid="uid://h15s24b2sh8e"]
+[gd_scene load_steps=24 format=3 uid="uid://h15s24b2sh8e"]
 
 [ext_resource type="Script" uid="uid://dyiwefeab6dch" path="res://Scenes/ui-/ui.gd" id="1_3b2b5"]
 [ext_resource type="Texture2D" uid="uid://bv0fnds7l1efn" path="res://Assets/Backgrounds/Forest of Illusion Files/Previews/Previewx3.png" id="2_qw4un"]
 [ext_resource type="Texture2D" uid="uid://cepfewjrpejsb" path="res://Scenes/ui-/Game_Name.png" id="3_302nr"]
-[ext_resource type="AudioStream" uid="uid://cggx3glsldhm1" path="res://Scenes/ui-/Dark sanctuary.mp3" id="3_g6l6n"]
+[ext_resource type="FontFile" uid="uid://c1b87egfqo4gi" path="res://Assets/Fonts/PeaberryBase.ttf" id="4_302nr"]
 [ext_resource type="PackedScene" uid="uid://dfboyroy1v66t" path="res://Scenes/ui-/input_ui.tscn" id="4_qui0h"]
+[ext_resource type="AudioStream" uid="uid://chmt4nth7xlyu" path="res://Assets/Audio/Title Screen.mp3" id="4_qw4un"]
+[ext_resource type="Texture2D" uid="uid://cmnydn8h8jd3x" path="res://Assets/Backgrounds/Texture Resume.png" id="5_heyen"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_banaf"]
+texture = ExtResource("5_heyen")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vf5vt"]
+texture = ExtResource("5_heyen")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wjmft"]
+texture = ExtResource("5_heyen")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mc0m3"]
+texture = ExtResource("5_heyen")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_heyen"]
+texture = ExtResource("5_heyen")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p5qcj"]
+texture = ExtResource("5_heyen")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_af35b"]
+texture = ExtResource("5_heyen")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0pvym"]
+texture = ExtResource("5_heyen")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xqxc0"]
+texture = ExtResource("5_heyen")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0vhxs"]
+texture = ExtResource("5_heyen")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xouna"]
+texture = ExtResource("5_heyen")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ee2u"]
+texture = ExtResource("5_heyen")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3b2b5"]
 bg_color = Color(0.49221575, 0.6486676, 0.4918496, 1)
@@ -45,19 +85,16 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3b2b5")
+bg_reset_width = 1152.0
 scale_intensity = 1.2
-duration = 0.2
 
-[node name="Background" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(5, -58)
 texture = ExtResource("2_qw4un")
+centered = false
+region_rect = Rect2(0, 0, 2304, 816)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -67,13 +104,13 @@ offset_right = 36.5
 offset_bottom = 63.0
 grow_horizontal = 2
 
-[node name="Title" type="Label" parent="Background/VBoxContainer"]
+[node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 31
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Background/VBoxContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
 position = Vector2(15.499973, 228)
 scale = Vector2(0.19415456, 0.1941545)
 texture = ExtResource("3_302nr")
@@ -95,30 +132,36 @@ theme_override_constants/separation = 13
 
 [node name="Start" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_3b2b5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qui0h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3b2b5")
-theme_override_styles/focus = SubResource("StyleBoxFlat_3b2b5")
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_302nr")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_banaf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vf5vt")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wjmft")
+theme_override_styles/focus = SubResource("StyleBoxTexture_mc0m3")
 text = "Start"
 expand_icon = true
 
 [node name="Options" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_3b2b5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qui0h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3b2b5")
-theme_override_styles/focus = SubResource("StyleBoxFlat_3b2b5")
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_302nr")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_heyen")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p5qcj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_af35b")
+theme_override_styles/focus = SubResource("StyleBoxTexture_0pvym")
 text = "Options"
 
 [node name="Quit" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_3b2b5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qui0h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3b2b5")
-theme_override_styles/focus = SubResource("StyleBoxFlat_3b2b5")
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_302nr")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_xqxc0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0vhxs")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xouna")
+theme_override_styles/focus = SubResource("StyleBoxTexture_1ee2u")
 text = "Quit"
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -222,7 +265,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_3b2b5")
 text = "Configure inputs"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_g6l6n")
+stream = ExtResource("4_qw4un")
 autoplay = true
 parameters/looping = true
 

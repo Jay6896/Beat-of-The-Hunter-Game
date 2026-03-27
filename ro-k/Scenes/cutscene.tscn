@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://d18inqssbbtsj"]
+
+[ext_resource type="Script" uid="uid://bkh83ifptie2n" path="res://Scripts/cutscene.gd" id="1_wg1ym"]
+[ext_resource type="Texture2D" uid="uid://cyxuduvelhcqr" path="res://Assets/Cutscene Images/Slide_1.png" id="2_imqb2"]
+[ext_resource type="Texture2D" uid="uid://bl1ka82bcbuv4" path="res://Assets/Cutscene Images/Slide_1.5.png" id="3_8jb8f"]
+[ext_resource type="Texture2D" uid="uid://bcuwqi56ffah8" path="res://Assets/Cutscene Images/Slide_2.png" id="4_3w3o4"]
+[ext_resource type="Texture2D" uid="uid://4uw1eitv1ltv" path="res://Assets/Cutscene Images/Slide_2.5.png" id="5_2iuql"]
+[ext_resource type="Texture2D" uid="uid://dr7eamop1ajfw" path="res://Assets/Cutscene Images/slide_3.png" id="6_54jsj"]
+[ext_resource type="Texture2D" uid="uid://bv25ygkpxjmv4" path="res://Assets/Cutscene Images/slide_4.5.png" id="7_mo4au"]
+[ext_resource type="Texture2D" uid="uid://ta3wjlvkeqiu" path="res://Assets/Cutscene Images/slide_4.png" id="8_ay7lf"]
+[ext_resource type="Texture2D" uid="uid://m3uhwavjy378" path="res://Assets/Cutscene Images/slide_4.6.png" id="9_saa22"]
+[ext_resource type="Texture2D" uid="uid://pfda7tv4qoqn" path="res://Assets/Cutscene Images/slide_5.png" id="10_crda0"]
+[ext_resource type="FontFile" uid="uid://c1b87egfqo4gi" path="res://Assets/Fonts/PeaberryBase.ttf" id="11_cqwul"]
+
+[node name="Cutscene_tscn" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wg1ym")
+slide_texts = Array[String](["As dawn breaks, a lone hunter ventures deep into an ancient, sacred forest, entirely unaware of the silent, ethereal gaze of the woodland spirits tracking his every step.", "Deep within the woods, he discovers a shinning serpent coiled around a strange rock. ", "With a single, fatal strike, he slays the creature. The forest plunges into a suffocating silence, only to shatter into a terrifying cacophony of warped, otherworldly noise. ", "The serpent violently erupts into blinding spirit-light, unleashing a terrible curse upon the hunter and his bloodline.", "He rushes home only to find his village unravelling. The sky bleeds into an unnatural twilight, beasts grow feral, and sacred shrines tremble with a chaotic energy. ", "Worst of all, the sacred ancestral beats of his people are now trapped on a constant loop inside his head. This never-ending drumming pounds in his mind, confusing his senses and making it hard to control his own body.", "A wandering priestess emerges from the chaos with a grim revelation: the beast he felled was the Guardian Serpent, the ancient Deity of Sound. The curse has bound his very soul to the maddening music of his memories.", "To save them all, she channels the collective spiritual might of the village into him, arming the hunter for a quest of redemption. ", "Empowered by the ancient magic of his people and driven by the relentless beat in his mind, the hunter turns his back on his ruined home. He plunges once more into the heart of the haunted forest, destined to confront the echoes of his mistake and shatter the Serpent’s curse once and for all!"])
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1165.0
+offset_bottom = 661.0
+color = Color(0, 0, 0, 1)
+
+[node name="ImageContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slide1" type="Sprite2D" parent="ImageContainer"]
+position = Vector2(583.7083, 257)
+scale = Vector2(0.4205729, 0.4205729)
+texture = ExtResource("2_imqb2")
+
+[node name="Slide1_5" type="Sprite2D" parent="ImageContainer"]
+position = Vector2(580.6113, 282.5)
+scale = Vector2(0.42382813, 0.42382813)
+texture = ExtResource("3_8jb8f")
+
+[node name="Slide2" type="Sprite2D" parent="ImageContainer"]
+position = Vector2(575.70825, 240.00003)
+scale = Vector2(0.4205729, 0.4205729)
+texture = ExtResource("4_3w3o4")
+
+[node name="Slide2_5" type="Sprite2D" parent="ImageContainer"]
+position = Vector2(570.09375, 235)
+scale = Vector2(0.4270833, 0.4270833)
+texture = ExtResource("5_2iuql")
+
+[node name="Slide3" type="Sprite2D" parent="ImageContainer"]
+position = Vector2(551, 175.99995)
+scale = Vector2(1.044, 1.044)
+texture = ExtResource("6_54jsj")
+
+[node name="Slide4_5" type="Sprite2D" parent="ImageContainer"]
+position = Vector2(583.6, 281.00003)
+scale = Vector2(0.79999995, 0.8)
+texture = ExtResource("7_mo4au")
+
+[node name="Slide4" type="Sprite2D" parent="ImageContainer"]
+position = Vector2(562.74915, 160.00003)
+scale = Vector2(1.4659499, 1.4659498)
+texture = ExtResource("8_ay7lf")
+
+[node name="Slide4_6" type="Sprite2D" parent="ImageContainer"]
+position = Vector2(584.6778, 289)
+scale = Vector2(0.40555555, 0.40555555)
+texture = ExtResource("9_saa22")
+
+[node name="Slide5" type="Sprite2D" parent="ImageContainer"]
+position = Vector2(581.8808, 400)
+scale = Vector2(0.47106484, 0.4710648)
+texture = ExtResource("10_crda0")
+
+[node name="TextBox" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 462.0
+offset_right = 1179.0
+offset_bottom = 660.0
+color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+
+[node name="TextLabel" type="RichTextLabel" parent="TextBox"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 21.0
+offset_right = 1144.0
+offset_bottom = 197.0
+theme_override_fonts/normal_font = ExtResource("11_cqwul")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true

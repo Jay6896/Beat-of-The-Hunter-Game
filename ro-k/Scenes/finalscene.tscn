@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://06phgg7yu50f"]
+
+[ext_resource type="Script" uid="uid://bkh83ifptie2n" path="res://Scripts/cutscene.gd" id="1_wenlp"]
+[ext_resource type="Texture2D" uid="uid://cq6oc7xvehih5" path="res://Assets/Cutscene Images/Final Image.png" id="2_qun5n"]
+[ext_resource type="FontFile" uid="uid://c1b87egfqo4gi" path="res://Assets/Fonts/PeaberryBase.ttf" id="3_tun2d"]
+
+[node name="Cutscene_tscn" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wenlp")
+next_scene_path = "res://Scenes/placeholder.tscn"
+slide_texts = Array[String](["After a grueling journey, the hunter defeats his own dark reflection and strikes down the reborn Serpent Spirit. The endless drumming finally fades from his mind, breaking the curse and saving his village."])
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1165.0
+offset_bottom = 661.0
+color = Color(0, 0, 0, 1)
+
+[node name="ImageContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FinalImage" type="Sprite2D" parent="ImageContainer"]
+position = Vector2(595, 195)
+texture = ExtResource("2_qun5n")
+
+[node name="TextBox" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 462.0
+offset_right = 1179.0
+offset_bottom = 660.0
+color = Color(0.13333334, 0.13333334, 0.13333334, 1)
+
+[node name="TextLabel" type="RichTextLabel" parent="TextBox"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 21.0
+offset_right = 1144.0
+offset_bottom = 197.0
+theme_override_fonts/normal_font = ExtResource("3_tun2d")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true

@@ -360,7 +360,9 @@ scale = Vector2(1, -1)
 [node name="StoryUi" parent="." instance=ExtResource("15_rybab")]
 scale = Vector2(0.65, 0.65)
 transform = Transform2D(0.65, 0, 0, 0.65, 0, 0)
-intro_text = "Find and defeat the [color=black]Spiritual Serpent[/color] to free the curse from the animals!"
+next_scene_path = "res://Scenes/finalscene.tscn"
+intro_text = "[font_size=48]The [color=black]Cursed Serpent[/color] has been defeated!
+Leave the forest, and pray all curses would have been lifted by then![/font_size]"
 boss_defeated_text = "The spiritual serpent has been defeated, 
 [font_size=48]but to free yourself from the curse, it must be from [color=black]within[/color][/font_size]"
 
