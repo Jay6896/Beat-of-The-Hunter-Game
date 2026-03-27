@@ -20,10 +20,7 @@ var current_health: float
 @onready var zip_sfx = $ZipImpactSFX 
 @onready var zip_miss_sfx = $ZipMissSFX 
 @onready var sword_box = $SwordBox
-
-# --- NEW: Reference to the CombatDetector so we can flip it ---
 @onready var combat_detector = $CombatDetector
-
 @onready var jump_sfx = $JumpSFX
 @onready var attack_sfx = $AttackSFX
 @onready var hurt_sfx = $HurtSFX
@@ -32,6 +29,8 @@ var current_health: float
 var is_combat_locked = false 
 var original_combat_position = Vector2.ZERO 
 var in_cutscene: bool = false 
+
+var can_jump: bool = true 
 
 func _ready():
 	current_health = max_health
@@ -74,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return 
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and can_jump:
 		animation.play("Jump Animation", 0.1)
 		if jump_sfx:
 			get_tree().create_timer(jump_audio_delay).timeout.connect(func(): if jump_sfx: jump_sfx.play())
@@ -92,18 +91,22 @@ func _physics_process(delta: float) -> void:
 		if direction < 0: 
 			sprite.flip_h = true
 			if sword_box: sword_box.scale.x = -1 
-			# --- CHANGED: Flip CombatDetector Left ---
 			if combat_detector: combat_detector.scale.x = -1 
 		else: 
 			sprite.flip_h = false
 			if sword_box: sword_box.scale.x = 1 
-			# --- CHANGED: Flip CombatDetector Right ---
 			if combat_detector: combat_detector.scale.x = 1 
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 	update_animations(direction)
+
+func disable_jump():
+	can_jump = false
+
+func enable_jump():
+	can_jump = true
 
 func apply_jump_force():
 	velocity.y = JUMP_VELOCITY
@@ -122,6 +125,7 @@ func update_animations(direction):
 		animation.play("Idle Animation", 0.1)
 		_stop_walking_sound()
 
+# --- FIX: The missing audio helper function is back! ---
 func _stop_walking_sound():
 	if walk_sfx and walk_sfx.playing:
 		walk_sfx.stop()
@@ -184,7 +188,6 @@ func die():
 	tween.tween_property(self, "modulate:a", 0.0, 1.5) 
 	await tween.finished
 
-# --- REAL-TIME COMBAT FUNCTIONS ---
 func _on_sword_box_area_entered(area: Area2D) -> void:
 	print("SWORD HIT AREA: ", area.name) 
 	if area.name == "HurtBox":
@@ -192,4 +195,22 @@ func _on_sword_box_area_entered(area: Area2D) -> void:
 		if enemy.has_method("take_realtime_damage"):
 			print("SUCCESS! Sword dealing ", real_time_attack_damage, " damage!") 
 			enemy.take_realtime_damage(real_time_attack_damage)
-			
+
+func heal(amount: float) -> bool:
+	if current_health >= max_health:
+		return false 
+		
+	print("--- PLAYER HEALED! Amount: ", amount, " ---")
+	current_health += amount
+	
+	if current_health > max_health:
+		current_health = max_health
+		
+	if health_bar: 
+		health_bar.value = current_health
+		
+	sprite.modulate = Color.GREEN
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate", Color.WHITE, 0.15).set_delay(0.15)
+	
+	return true

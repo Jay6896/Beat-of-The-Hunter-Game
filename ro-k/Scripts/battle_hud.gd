@@ -221,3 +221,7 @@ func _resolve_result(text, value, is_attack):
 	
 	await get_tree().create_timer(actual_post_hit).timeout
 	if not combat_ended: next_reticle_cycle()
+
+
+func _on_story_ui_mid_level_dialogue_finished() -> void:
+	pass # Replace with function body.

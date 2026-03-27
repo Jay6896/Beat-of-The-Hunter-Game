@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-# --- NEW: The custom signal to tell the UI the boss is dead ---
 signal boss_defeated 
 
 @export var patrol_speed: float = 60.0
@@ -15,16 +14,21 @@ signal boss_defeated
 @export var right_facing_offset: float = -50.0 
 @export var hitbox_right_offset: float = -50.0 
 
+@export_enum("Right:1", "Left:-1") var start_direction: int = 1
+
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var current_health: float
 var start_x: float
 var target_player = null
-var direction: int = 1
+var direction: int
 
 var default_sprite_x: float = 0.0 
 var default_body_x: float = 0.0
 var default_attack_x: float = 0.0
 var default_detector_x: float = 0.0
+
+var pre_lunge_offset: float = 0.0
+var pre_lunge_attack_x: float = 0.0
 
 enum State { PATROL, SPOT_PLAYER, CHASE, ATTACK, HURT, DEAD }
 var current_state: State = State.PATROL
@@ -51,6 +55,7 @@ func _ready():
 		health_bar.max_value = max_health
 		health_bar.value = current_health
 
+	direction = start_direction
 	_flip_enemy(direction)
 
 func _physics_process(delta):
@@ -67,7 +72,6 @@ func _physics_process(delta):
 		
 	move_and_slide()
 
-# --- MOVEMENT STATES ---
 func _state_patrol():
 	if anim_player.current_animation != "Walk":
 		anim_player.play("Walk")
@@ -131,9 +135,9 @@ func _flip_enemy(dir):
 			player_detector.scale.x = 1
 			player_detector.position.x = default_detector_x
 
-# --- DETECTION LOGIC ---
 func _on_player_detector_body_entered(body):
 	if body.has_method("take_damage") and current_state == State.PATROL:
+		# Removed cutscene lock
 		target_player = body
 		current_state = State.SPOT_PLAYER
 		velocity.x = 0
@@ -151,34 +155,38 @@ func _on_player_detector_body_exited(body):
 			current_state = State.PATROL
 			start_x = global_position.x 
 
-# --- ATTACK LOGIC ---
 func _perform_attack():
 	if current_state == State.ATTACK or current_state == State.DEAD: return
 	current_state = State.ATTACK
 	
 	anim_player.play("Attack")
 	
+	pre_lunge_offset = sprite.offset.x
+	if attack_box: pre_lunge_attack_x = attack_box.position.x
+	
+	var anim_length = anim_player.current_animation_length
 	await get_tree().create_timer(attack_lunge_delay).timeout
 	
 	if current_state == State.ATTACK:
 		if direction > 0:
-			sprite.offset.x = right_facing_offset + attack_lunge_offset
-			if attack_box: attack_box.position.x = -default_attack_x + hitbox_right_offset + attack_lunge_offset
+			sprite.offset.x = pre_lunge_offset + attack_lunge_offset
+			if attack_box: attack_box.position.x = pre_lunge_attack_x + attack_lunge_offset
 		else:
-			sprite.offset.x = -attack_lunge_offset
-			if attack_box: attack_box.position.x = default_attack_x - attack_lunge_offset
+			sprite.offset.x = pre_lunge_offset - attack_lunge_offset
+			if attack_box: attack_box.position.x = pre_lunge_attack_x - attack_lunge_offset
 			
-	await anim_player.animation_finished
-	
+		var time_left = anim_length - attack_lunge_delay
+		if time_left > 0:
+			await get_tree().create_timer(time_left).timeout
+		else:
+			await get_tree().create_timer(0.1).timeout
+			
 	if current_state != State.DEAD:
-		if direction > 0:
-			sprite.offset.x = right_facing_offset
-			if attack_box: attack_box.position.x = -default_attack_x + hitbox_right_offset
-		else:
-			sprite.offset.x = 0.0
-			if attack_box: attack_box.position.x = default_attack_x
-			
-		current_state = State.CHASE
+		sprite.offset.x = pre_lunge_offset
+		if attack_box: attack_box.position.x = pre_lunge_attack_x
+		
+		if current_state == State.ATTACK:
+			current_state = State.CHASE
 
 func _on_attack_box_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
@@ -199,7 +207,6 @@ func take_realtime_damage(amount: float):
 		tween.tween_property(self, "modulate:a", 0.0, 1.0)
 		await tween.finished
 		
-		# --- NEW: Trigger the signal right before deleting the snake ---
 		boss_defeated.emit() 
 		
 		queue_free()
@@ -207,16 +214,12 @@ func take_realtime_damage(amount: float):
 		current_state = State.HURT
 		anim_player.play("Hurt")
 		
-		if direction > 0:
-			sprite.offset.x = right_facing_offset
-		else:
-			sprite.offset.x = 0.0
-			
+		_flip_enemy(direction)
+		
 		await anim_player.animation_finished
 		
 		if current_state != State.DEAD:
 			current_state = State.CHASE if target_player else State.PATROL
 
-
 func _on_boss_defeated() -> void:
-	pass # Replace with function body.
+	pass

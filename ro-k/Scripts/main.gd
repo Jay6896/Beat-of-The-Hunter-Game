@@ -121,3 +121,7 @@ func _end_combat():
 	if player.has_method("exit_combat_state"): player.exit_combat_state()
 	if camera: camera.unlock_camera()
 	player.animation.play("Idle Animation")
+
+
+func start_combat_mode() -> void:
+	pass # Replace with function body.
